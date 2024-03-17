@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>这是我的第一个项目</title>
-</head>
-<body>
-    <p>可以直接运行</p>
-    <p>sdss</p>
-    <div>sldlsdfa</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js实现动画效果</title>
+    <style>
+      body {
+        margin: 50;
+      }
+      #box {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: rgb(43, 226, 156);
+      }
+      #triangle {
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 50px solid #4aade8; /* 这是三角形的颜色 */
+      }
+    </style>
+  </head>
+  <body>
+    <p>以下是我实现的动画</p>
+    <div id="box"></div>
+    <div id="triangle"></div>
+  </body>
+
+  <script>
+    const divbox = document.getElementById("box");
+    const divtriangle = document.getElementById("triangle");
+    const blue = function () {
+      divbox.style.backgroundColor = "blue";
+      setTimeout(function () {
+        console.log("变成蓝色");
+        red();
+      }, 3000);
+    };
+    const red = function () {
+      divbox.style.backgroundColor = "red";
+      setTimeout(function () {
+        blue();
+      }, 3000);
+    };
+    blue();
+
+    let a= 0;
+    setInterval(function(){
+        a++;
+        // divtriangle.style.transform='translate(' + (a * 10) + 'px, 0)';
+
+        divtriangle.style.transform = `translate(${a*10}px,0)`;
+        divbox.style.transform='translate(' + (a * 8) + 'px, 0)';
+
+
+    },1000);
+
+  </script>
 </html>
